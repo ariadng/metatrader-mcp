@@ -1,0 +1,41 @@
+[project]
+name = "metatradermcp"
+version = "0.0.1"
+description = "A Model Context Protocol server for MetaTrader 5 integration"
+readme = "README.md"
+requires-python = ">=3.13"
+authors = [
+    { name = "Aria Dhanang" },
+]
+keywords = ["metatrader", "trading", "mcp", "llm"]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mcp>=1.6.0",
+    "pydantic>=2.0.0",
+    "MetaTrader5>=5.0.0",
+    "loguru>=0.7.0",
+]
+
+[project.scripts]
+metatradermcp = "metatradermcp.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/metatradermcp"]
+
+[tool.uv]
+dev-dependencies = [
+    "pyright>=1.1.389",
+    "pytest>=8.3.3",
+    "ruff>=0.8.1",
+]
